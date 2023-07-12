@@ -1,0 +1,25 @@
+server:
+  port: 9999
+
+logging:
+  level:
+    org.springframework.security: trace
+
+spring:
+  application:
+    name: auth-client
+  config:
+    import: optional:file:.env[.properties]
+
+  # colored console log messsages
+  output:
+    ansi:
+      enabled: always
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_CLIENT_SECRET}
